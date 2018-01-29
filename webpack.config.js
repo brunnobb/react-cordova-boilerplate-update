@@ -1,24 +1,31 @@
 const webpack = require('webpack');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // installed via npm
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 require('babel-polyfill');
 // require("jquery");
 
-module.exports = {
+const analyze = !!process.env.ANALYZE_ENV;
+const paths = ['www/*.*', 'www/img', 'www/static'];
 
+module.exports = {
+    cache: false,
+    devtool: process.env.NODE_ENV === 'production' ? '' : 'source-map',
     plugins: process.env.NODE_ENV === 'production' ? [
+        new CleanWebpackPlugin(paths),
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new UglifyJsPlugin({
+            parallel: true
+        }),
+        new webpack.HashedModuleIdsPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-        }),
-
         new CopyWebpackPlugin([{
             from: './html'
         }, {
@@ -30,7 +37,7 @@ module.exports = {
         }])
 
     ] : [
-
+        // new BundleAnalyzerPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('development')

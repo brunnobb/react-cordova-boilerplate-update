@@ -143,7 +143,7 @@ class Template extends React.Component {
                         <AppBar
                             title={`Usuário: ${loggedUser}`}
                             showMenuIconButton
-                            onLeftIconButtonTouchTap={this.showDrawer}
+                            onLeftIconButtonClick={this.showDrawer}
                             iconElementRight={
                                 <div>
                                     <div className="versionFont">

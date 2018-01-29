@@ -8,7 +8,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 require('babel-polyfill');
 // require("jquery");
 
-const analyze = !!process.env.ANALYZE_ENV;
 const paths = ['www/*.*', 'www/img', 'www/static'];
 
 module.exports = {
@@ -21,6 +20,10 @@ module.exports = {
             parallel: true
         }),
         new webpack.HashedModuleIdsPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('production')
@@ -38,6 +41,10 @@ module.exports = {
 
     ] : [
         // new BundleAnalyzerPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            minimize: false,
+            debug: true
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('development')

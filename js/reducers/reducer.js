@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { reducer as formReducer } from 'redux-form';
 import {
     CHANGE_LOGIN,
     CHANGE_PASS,
@@ -248,16 +247,7 @@ const loginUserName = (state = '', action) => {
 
 
 const contactName = (state = '', action) => {
-    switch (action.type) {
-    case CHANGE_CONTACT_NAME:
-        return action.name;
-    case '@@redux-form/CHANGE':
-        if (action.meta.field === 'contactName') {
-            return action.payload;
-        }
-    default:
-        return state;
-    }
+    return state;
 };
 
 const contactContact = (state = '', action) => {
@@ -331,7 +321,6 @@ const rootReducer = combineReducers({
     contactContact,
     contactSubject,
     contactMessage,
-    form: formReducer,
     router: routerReducer
 });
 

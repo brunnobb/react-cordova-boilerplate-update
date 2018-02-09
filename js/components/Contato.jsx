@@ -6,13 +6,10 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
-
-import { TextField as TextFieldForm } from 'redux-form-material-ui';
-
 import { loginTextFieldStyle, loginBtnStyle, styleBlack } from '../styles/styles';
 import { redirectConsulta, redirectHome } from '../actions/redirectActions';
-import { changeContactName, changeContactContact, changeContactSubject, changeContactMessage } from '../actions/mainActions';
+import { changeContactName, changeContactContact, changeContactSubject,
+    changeContactMessage } from '../actions/mainActions';
 import { fetchMessage } from '../actions/fetchActions';
 import { theme } from './Theme';
 
@@ -68,10 +65,12 @@ class ContactForm extends React.Component {
     sendDatas = () => {
         this.setState({ open: true });
 
-        const { contactName,
+        const {
+            contactName,
             contactContact,
             contactSubject,
-            contactMessage } = this.props;
+            contactMessage
+        } = this.props;
 
         this.props.dispatch(fetchMessage(contactName, contactContact, contactSubject, contactMessage));
     };
@@ -107,7 +106,9 @@ class ContactForm extends React.Component {
 
 
     render() {
-        const { contactName, contactContact, contactSubject, contactMessage } = this.props;
+        const {
+            contactName, contactContact, contactSubject, contactMessage
+        } = this.props;
 
         const actionsAprovar = [
             <FlatButton
@@ -134,17 +135,6 @@ class ContactForm extends React.Component {
 
                     <div className="logobar" onClick={this.redirHome} />
 
-                    <Field
-                        name="contactName"
-                        component={TextFieldForm}
-                        floatingLabelText="Nome"
-                        style={loginTextFieldStyle}
-                        underlineStyle={styleBlack}
-                        underlineFocusStyle={styleBlack}
-                        floatingLabelStyle={styleBlack}
-                        floatingLabelFocusStyle={styleBlack}
-                        floatingLabelFixed
-                    />
 
                     <div className="contato">
 
@@ -258,13 +248,11 @@ const mapStateToProps = (state) => {
     };
 };
 
-
+/*
 // First decorate your component with reduxForm
 ContactForm = reduxForm({
     form: 'ContactForm'
 })(ContactForm);
+*/
+export default connect(mapStateToProps)(ContactForm);
 
-export default connect(
-    mapStateToProps
-)(ContactForm)
-;

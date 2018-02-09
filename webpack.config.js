@@ -1,14 +1,12 @@
 const webpack = require('webpack');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // installed via npm
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 require('babel-polyfill');
-// require("jquery");
 
 const paths = ['www/*.*', 'www/img', 'www/static'];
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     cache: false,

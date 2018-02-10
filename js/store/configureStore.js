@@ -26,9 +26,9 @@ applyMiddleware(...middleware)
 
 export default function configureStore(preloadedState, historyMiddleware) {
     middleware.push(historyMiddleware);
-    return createStore(rootReducer, preloadedState,
-        composeEnhancers(
-            applyMiddleware(...middleware)
-        ));
+    return createStore(
+        rootReducer, preloadedState,
+        composeEnhancers(applyMiddleware(...middleware))
+    );
 /* eslint-enable */
 }

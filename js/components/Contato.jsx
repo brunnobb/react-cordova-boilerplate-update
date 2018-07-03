@@ -114,7 +114,7 @@ class ContactForm extends React.Component {
             <FlatButton
                 label="Fechar"
                 primary
-                onTouchTap={this.handleCloseMessageAprovar}
+                onClick={this.handleCloseMessageAprovar}
             />
         ];
 
@@ -194,7 +194,7 @@ class ContactForm extends React.Component {
                             label="Enviar"
                             primary
                             style={loginBtnStyle}
-                            onTouchTap={this.sendDatas}
+                            onClick={this.sendDatas}
                         />
                     </div>
                     <div className="volt">
@@ -204,7 +204,7 @@ class ContactForm extends React.Component {
                             label="Voltar"
                             primary
                             style={loginBtnStyle}
-                            onTouchTap={this.redirHome}
+                            onClick={this.redirHome}
                         />
                     </div>
                 </div>

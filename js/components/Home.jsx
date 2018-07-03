@@ -137,7 +137,7 @@ class Login extends React.Component {
                             label="Contato"
                             primary
                             style={loginBtnStyle}
-                            onTouchTap={this.redirContato}
+                            onClick={this.redirContato}
                         />
 
                         <div className="spacer" />
@@ -146,7 +146,7 @@ class Login extends React.Component {
                             label="Área Restrita"
                             primary
                             style={loginBtnStyle}
-                            onTouchTap={this.redirLogin}
+                            onClick={this.redirLogin}
                         />
 
 

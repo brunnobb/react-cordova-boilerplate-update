@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
 import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -64,5 +64,6 @@ ReactDOM.render(
                 </Switch>
             </ConnectedRouter>
         </Provider>
-    )
-    , document.getElementById('app'));
+    ),
+    document.getElementById('app')
+);

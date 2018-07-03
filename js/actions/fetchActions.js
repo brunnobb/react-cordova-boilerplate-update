@@ -40,11 +40,10 @@ export const fetchLogin = (user, pass) => (
 
         // preparar detalhes
 
-        const postObj =
-            {
-                name: user.toUpperCase(),
-                pass: pass.toUpperCase()
-            };
+        const postObj = {
+            name: user.toUpperCase(),
+            pass: pass.toUpperCase()
+        };
 
         const token = `${postObj.name}-${postObj.pass}`;
         const postBody = JSON.stringify(postObj);
@@ -64,6 +63,8 @@ export const fetchLogin = (user, pass) => (
             body: postBody
         };
 
+        console.log(myInit);
+
 
         return new Promise(
 
@@ -72,7 +73,8 @@ export const fetchLogin = (user, pass) => (
                     dispatch(gotFetchLogin(user, pass, postObj));
                 });
                 resolve();
-            });
+            }
+        );
 
         // Retornar promise
         /* return fetch(loginUrl, myInit)
@@ -146,11 +148,10 @@ export const fetchSolicitacaoList = (user, pass) => (
     function localreturnFetchSolicitacaoList(dispatch) {
         dispatch(callFetchSolicitacaoList(user, pass));
 
-        const postObj =
-            {
-                name: user.toUpperCase(),
-                pass: pass.toUpperCase()
-            };
+        const postObj = {
+            name: user.toUpperCase(),
+            pass: pass.toUpperCase()
+        };
 
         const token = `${postObj.name}-${postObj.pass}`;
         const postBody = JSON.stringify(postObj);
@@ -265,11 +266,10 @@ export const fetchApproveSolicitacao = (router, user, pass, approvalObj) => (
 
          */
 
-        const postObj =
-            {
-                name: user.toUpperCase(),
-                pass: pass.toUpperCase()
-            };
+        const postObj = {
+            name: user.toUpperCase(),
+            pass: pass.toUpperCase()
+        };
 
         const token = `${postObj.name}-${postObj.pass}`;
         const postBody = JSON.stringify(approvalObj);
@@ -372,13 +372,12 @@ export const fetchMessage = (contactName, contactContact, contactSubject, contac
 
          */
 
-        const postObj =
-            {
-                nome: contactName.toUpperCase(),
-                contato: contactContact.toUpperCase(),
-                assunto: contactSubject.toUpperCase(),
-                Mensagem: contactMessage.toUpperCase()
-            };
+        const postObj = {
+            nome: contactName.toUpperCase(),
+            contato: contactContact.toUpperCase(),
+            assunto: contactSubject.toUpperCase(),
+            Mensagem: contactMessage.toUpperCase()
+        };
 
         // const token = `${postObj.name}-${postObj.pass}`;
         const postBody = JSON.stringify(postObj);

@@ -8,7 +8,9 @@ import CircularProgress from 'material-ui/CircularProgress';
 import PropTypes from 'prop-types';
 
 
-import { loginTextFieldStyle, loginBtnStyle, loadingDivStyle, styleBlack } from '../styles/styles';
+import {
+    loginTextFieldStyle, loginBtnStyle, loadingDivStyle, styleBlack
+} from '../styles/styles';
 import { changeLogin, changePass } from '../actions/mainActions';
 import { fetchLogin } from '../actions/fetchActions';
 import { redirectConsulta, redirectHome } from '../actions/redirectActions';
@@ -16,13 +18,6 @@ import { theme } from './Theme';
 
 
 class Login extends React.Component {
-    static contextTypes = {
-        router: PropTypes.shape({
-            history: PropTypes.object.isRequired
-        })
-    };
-
-
     static propTypes = {
         isLoading: PropTypes.bool.isRequired,
         loginUserName: PropTypes.string.isRequired,
@@ -31,6 +26,12 @@ class Login extends React.Component {
         loggedUserPass: PropTypes.string.isRequired,
         dispatch: PropTypes.func.isRequired,
         loginErrorMsg: PropTypes.string.isRequired
+    };
+
+    static contextTypes = {
+        router: PropTypes.shape({
+            history: PropTypes.object.isRequired
+        })
     };
 
     componentDidMount() {
@@ -63,8 +64,9 @@ class Login extends React.Component {
     };
 
     executeLogin = () => {
-        const { loginUserName, loginPassword } = this.props;
-        this.props.dispatch(fetchLogin(loginUserName, loginPassword));
+        console.log('carai');
+        const { loginUserName, loginPassword, dispatch } = this.props;
+        dispatch(fetchLogin(loginUserName, loginPassword));
     };
 
     handleChangePass = (passComponent) => {
@@ -80,7 +82,7 @@ class Login extends React.Component {
         let progressDiv;
         if (isLoading) {
             progressDiv = (
-                <div className="fill-parent loading-bg vcenter" >
+                <div className="fill-parent loading-bg vcenter">
                     <div className="loadingDiv">
                         <CircularProgress size={100} thickness={7} color="White" style={loadingDivStyle} />
                     </div>
@@ -91,7 +93,7 @@ class Login extends React.Component {
 
         return (
             <MuiThemeProvider muiTheme={theme}>
-                <div className="fill-parent login-bg vcenter" >
+                <div className="fill-parent login-bg vcenter">
                     { progressDiv }
                     <div className="logobar" onClick={this.redirHome} />
 
@@ -140,7 +142,7 @@ class Login extends React.Component {
                                 label="Entrar"
                                 primary
                                 style={loginBtnStyle}
-                                onTouchTap={this.executeLogin}
+                                onClick={this.executeLogin}
                             />
 
                         </div>

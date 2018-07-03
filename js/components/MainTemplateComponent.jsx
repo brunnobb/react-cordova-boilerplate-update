@@ -131,7 +131,7 @@ class Template extends React.Component {
                         </MenuItem>
                         <Divider />
                         <FlatButton
-                            onTouchTap={this.handleExitClick}
+                            onClick={this.handleExitClick}
                             backgroundColor={appSecondaryColor}
                             fullWidth
                             label="SAIR"

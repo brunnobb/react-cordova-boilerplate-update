@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Table, TableBody, TableHeader,
-    TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
+import {
+    Table, TableBody, TableHeader,
+    TableHeaderColumn, TableRow, TableRowColumn
+} from 'material-ui/Table';
 
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -212,20 +214,20 @@ class SolicitacaoList extends React.Component {
             <FlatButton
                 label="Não"
                 primary
-                onTouchTap={this.handleClose}
+                onClick={this.handleClose}
             />,
             <FlatButton
                 label="Sim"
                 primary
-                onTouchTap={this.handleConfirmClose}
+                onClick={this.handleConfirmClose}
             />
         ];
 
         const filterOrderPipeline = [
             // funcao de filtro
             array => array.filter(item => (
-                (item.COD_SOCO === parseInt(listFilterActive, 10)) ||
-                (item.NOME_SOLICITANTE.toUpperCase().includes(listFilterActive.toUpperCase())
+                (item.COD_SOCO === parseInt(listFilterActive, 10))
+                || (item.NOME_SOLICITANTE.toUpperCase().includes(listFilterActive.toUpperCase())
                 ))),
             // funcao de ordernacao
             (array) => {
@@ -255,18 +257,21 @@ class SolicitacaoList extends React.Component {
             (this.state.pageSize * listPageNo)
         );
 
-        const listItems = finalList.map(solicitacao =>
-
-            (<TableRow key={solicitacao.COD_SOCO}>
+        const listItems = finalList.map(solicitacao => (
+            <TableRow key={solicitacao.COD_SOCO}>
                 <TableRowColumn style={tableRowStyleCod}>
                     {solicitacao.COD_SOCO}
                 </TableRowColumn>
-                <TableRowColumn style={tableRowStyle}>{solicitacao.NOME_SOLICITANTE}</TableRowColumn>
-                <TableRowColumn style={tableRowStyleVal}>{`R$ ${solicitacao.VLR_TOTAL.toFixed(2)}`}</TableRowColumn>
+                <TableRowColumn style={tableRowStyle}>
+                    {solicitacao.NOME_SOLICITANTE}
+                </TableRowColumn>
+                <TableRowColumn style={tableRowStyleVal}>
+                    {`R$ ${solicitacao.VLR_TOTAL.toFixed(2)}`}
+                </TableRowColumn>
                 <TableRowColumn style={tableRowStyleIcon}>
                     <FlatButton
                         fullWidth
-                        onTouchTap={() => { this.openDetails(solicitacao.COD_SOCO); }}
+                        onClick={() => { this.openDetails(solicitacao.COD_SOCO); }}
                         target="_blank"
                         secondary
                         icon={<ListIcon color={appSecondaryColor} />}
@@ -276,14 +281,15 @@ class SolicitacaoList extends React.Component {
                 <TableRowColumn style={tableRowStyleIcon}>
                     <FlatButton
                         fullWidth
-                        onTouchTap={() => { this.openConfirm(solicitacao.COD_SOCO); }}
+                        onClick={() => { this.openConfirm(solicitacao.COD_SOCO); }}
                         target="_blank"
                         secondary
                         icon={<DoneIcon color={appSecondaryColor} />}
                         style={listButtonStyle}
                     />
                 </TableRowColumn>
-            </TableRow>));
+            </TableRow>
+        ));
         let backPage = (listPageNo - 1);
         let backPage2 = (listPageNo - 2);
         let nextPage = (listPageNo + 1);
@@ -330,14 +336,15 @@ class SolicitacaoList extends React.Component {
         realPageList = realPageList.sort((a, b) => (a - b));
 
 
-        const pageSelectionPages = realPageList.map(page =>
-            (<BottomNavigationItem
+        const pageSelectionPages = realPageList.map(page => (
+            <BottomNavigationItem
                 key={page}
                 label={page}
-                onTouchTap={() => { this.switchPage(page); }}
+                onClick={() => { this.switchPage(page); }}
                 icon={<CopyIcon color={appSecondaryColor} />}
                 style={listButtonStyle}
-            />));
+            />
+        ));
 
 
         const pageSelectionList = (
@@ -346,26 +353,26 @@ class SolicitacaoList extends React.Component {
                     <BottomNavigationItem
                         label="Inicio"
                         icon={<FirstPageIcon color={appSecondaryColor} />}
-                        onTouchTap={() => { this.switchPage(1); }}
+                        onClick={() => { this.switchPage(1); }}
                         style={listButtonStyle}
                     />
                     <BottomNavigationItem
                         label="Voltar"
                         icon={<BackPageIcon color={appSecondaryColor} />}
-                        onTouchTap={() => { this.switchPage(backPage); }}
+                        onClick={() => { this.switchPage(backPage); }}
                         style={listButtonStyle}
                     />
                     {pageSelectionPages}
                     <BottomNavigationItem
                         label="Prox"
                         icon={<NextPageIcon color={appSecondaryColor} />}
-                        onTouchTap={() => { this.switchPage(nextPage); }}
+                        onClick={() => { this.switchPage(nextPage); }}
                         style={listButtonStyle}
                     />
                     <BottomNavigationItem
                         label="Fim"
                         icon={<LastPageIcon color={appSecondaryColor} />}
-                        onTouchTap={() => { this.switchPage(pages); }}
+                        onClick={() => { this.switchPage(pages); }}
                         style={listButtonStyle}
                     />
                 </BottomNavigation>
@@ -401,7 +408,7 @@ class SolicitacaoList extends React.Component {
             <FlatButton
                 label="Fechar"
                 primary
-                onTouchTap={this.handleCloseMessageAprovar}
+                onClick={this.handleCloseMessageAprovar}
             />
         ];
 
@@ -409,8 +416,15 @@ class SolicitacaoList extends React.Component {
             <div>
                 <div className="templateLogobar" />
                 <p>
+
+
+
+
+
+
+
                     Solicitações de Compra
-                </p>
+</p>
 
                 <div style={bottomNavParentStyle}>
 
@@ -420,8 +434,15 @@ class SolicitacaoList extends React.Component {
                         modal
                         open={this.state.dialogOpen}
                     >
+
+
+
+
+
+
+
                         Deseja Aprovar a solicitação?
-                    </Dialog>
+</Dialog>
 
                     <Dialog
                         title="Aprovação"
@@ -441,7 +462,7 @@ class SolicitacaoList extends React.Component {
                                 primary
                                 style={updateToolbarButtonStylePortrait}
                                 icon={<CachedIcon color={appSecondaryColor} />}
-                                onTouchTap={() => { this.handleResetSolicitacao(); }}
+                                onClick={() => { this.handleResetSolicitacao(); }}
                             />
 
 
@@ -458,7 +479,7 @@ class SolicitacaoList extends React.Component {
                                 primary
                                 style={searchButtonStyle}
                                 icon={<SearchIcon color={appSecondaryColor} />}
-                                onTouchTap={() => { this.handleChangeActiveFilter(); }}
+                                onClick={() => { this.handleChangeActiveFilter(); }}
                             />
                         </ToolbarGroup>
                     </Toolbar>
@@ -473,33 +494,74 @@ class SolicitacaoList extends React.Component {
                                 <TableHeaderColumn style={tableRowStyleCod}>
                                     <div
                                         style={listButtonHeaderStyle}
-                                        onTouchTap={() => { this.switchOrder('COD_SOCO'); }}
+                                        onClick={() => { this.switchOrder('COD_SOCO'); }}
                                     >
-                                        COD {iconCodSoco}
+
+
+
+
+
+
+
+                                        COD
+{' '}
+                                        {iconCodSoco}
                                     </div>
                                 </TableHeaderColumn>
                                 <TableHeaderColumn style={tableRowStyle}>
                                     <div
                                         style={listButtonHeaderStyle}
-                                        onTouchTap={() => { this.switchOrder('NOME_SOLICITANTE'); }}
+                                        onClick={() => { this.switchOrder('NOME_SOLICITANTE'); }}
                                     >
-                                        Solic. {iconNomeSolicitante}
+
+
+
+
+
+
+
+                                        Solic.
+{' '}
+                                        {iconNomeSolicitante}
                                     </div>
                                 </TableHeaderColumn>
                                 <TableHeaderColumn style={tableRowStyleVal}>
                                     <div
                                         style={listButtonHeaderStyle}
-                                        onTouchTap={() => { this.switchOrder('VLR_TOTAL'); }}
+                                        onClick={() => { this.switchOrder('VLR_TOTAL'); }}
                                     >
-                                        Valor {iconVlrTotal}
+
+
+
+
+
+
+
+                                        Valor
+{' '}
+                                        {iconVlrTotal}
                                     </div>
                                 </TableHeaderColumn>
                                 <TableHeaderColumn style={tableRowStyleIcon}>
+
+
+
+
+
+
+
                                     Det.
-                                </TableHeaderColumn>
+</TableHeaderColumn>
                                 <TableHeaderColumn style={tableRowStyleIcon}>
+
+
+
+
+
+
+
                                     Apr.
-                                </TableHeaderColumn>
+</TableHeaderColumn>
                             </TableRow>
                         </TableHeader>
                         <TableBody

@@ -117,12 +117,12 @@ class Aprovar extends React.Component {
             <FlatButton
                 label="Não"
                 primary
-                onTouchTap={this.handleClose}
+                onClick={this.handleClose}
             />,
             <FlatButton
                 label="Sim"
                 primary
-                onTouchTap={this.handleConfirmClose}
+                onClick={this.handleConfirmClose}
             />
         ];
 
@@ -130,7 +130,7 @@ class Aprovar extends React.Component {
             <FlatButton
                 label="Fechar"
                 primary
-                onTouchTap={this.handleCloseMessageAprovar}
+                onClick={this.handleCloseMessageAprovar}
             />
         ];
 
@@ -299,12 +299,12 @@ class Aprovar extends React.Component {
                         <BottomNavigationItem
                             label="Retornar"
                             icon={<UndoIcon color={appSecondaryColor} />}
-                            onTouchTap={() => this.select(0)}
+                            onClick={() => this.select(0)}
                         />
                         <BottomNavigationItem
                             label="Aprovar"
                             icon={<DoneIcon color={appSecondaryColor} />}
-                            onTouchTap={() => this.select(1)}
+                            onClick={() => this.select(1)}
                         />
                     </BottomNavigation>
                 </Paper>

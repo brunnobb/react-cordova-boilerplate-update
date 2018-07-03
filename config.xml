@@ -1,16 +1,25 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="100000" id="br.com.biolerplate" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>CORDOVA-BOILERPLATE</name>
+<widget android-versionCode="100000" id="br.com.biolerplate" version="1.0.0" 
+    xmlns="http://www.w3.org/ns/widgets" 
+    xmlns:gap="http://phonegap.com/ns/1.0">
+
+    <name>
+        CORDOVA-BOILERPLATE
+    </name>
+
     <description>
         BOILERPLATE CORDOVA - ANDROID
     </description>
+
     <author email="brunnobb@gmail.com" href="">
         Brunno Bettini
     </author>
+
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
     <icon src="img/icon.png" />
+    
     <preference name="android-windowSoftInputMode" value="adjustPan" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
@@ -24,6 +33,15 @@
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
+    <preference name="windows-target-version" value="10.0" />
+    <preference name="WindowsToastCapable" value="true" />
+    <preference name="android-build-tool" value="gradle" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <engine name="android" spec="^7.1.0" />
+    <engine name="windows" spec="^6.0.0" />
+    <engine name="browser" spec="^5.0.3" />
+
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="org.apache.cordova.contacts" />
     <gap:plugin name="org.apache.cordova.device" />
@@ -39,7 +57,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-minSdkVersion" value="19" />
     <preference name="android-installLocation" value="auto" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -89,14 +107,5 @@
         <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
         <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
     </platform>
-    <preference name="ios-statusbarstyle" value="black-opaque" />
-    <preference name="windows-target-version" value="10.0" />
-    <preference name="WindowsToastCapable" value="true" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <preference name="android-build-tool" value="gradle" />
-    <hook src="copy_resource_files.js" type="before_build" />
-    <engine name="android" spec="^7.0.0" />
-    <engine name="windows" spec="^5.0.0" />
-    <engine name="browser" spec="^5.0.3" />
+
 </widget>

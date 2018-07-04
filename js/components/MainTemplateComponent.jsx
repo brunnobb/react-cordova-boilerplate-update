@@ -1,17 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
-import CircularProgress from 'material-ui/CircularProgress';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import UnlockIcon from 'material-ui/svg-icons/action/lock-open';
-import Divider from 'material-ui/Divider';
 import PropTypes from 'prop-types';
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider, withStyles } from '@material-ui/core/styles';
+
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Divider from '@material-ui/core/Divider';
+import MenuItem from '@material-ui/core/MenuItem';
+
+import CircularProgress from 'material-ui/CircularProgress';
+import Drawer from 'material-ui/Drawer';
+import UnlockIcon from 'material-ui/svg-icons/action/lock-open';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
+
 
 import { theme, appSecondaryColor } from './Theme';
 import { loadingDivStyle, appNameStyle } from '../styles/styles';
@@ -20,14 +28,20 @@ import { redirectLogin, redirectContato } from '../actions/redirectActions';
 import { version } from '../actions/mainActions';
 
 
+const styles = {
+    root: {
+        flexGrow: 1,
+    },
+    flex: {
+        flex: 1,
+    },
+    menuButton: {
+        marginLeft: -12,
+        marginRight: 20,
+    },
+};
+
 class Template extends React.Component {
-    static contextTypes = {
-        router: PropTypes.shape({
-            history: PropTypes.object.isRequired
-        })
-    };
-
-
     static propTypes = {
         children: PropTypes.element,
         isLoading: PropTypes.bool.isRequired,
@@ -35,6 +49,14 @@ class Template extends React.Component {
         dispatch: PropTypes.func.isRequired,
         loggedUserPass: PropTypes.string.isRequired
     };
+
+
+    static contextTypes = {
+        router: PropTypes.shape({
+            history: PropTypes.object.isRequired
+        })
+    };
+
 
     static defaultProps = {
         children: (<div />)
@@ -87,13 +109,13 @@ class Template extends React.Component {
     };
 
     render() {
-        const { loggedUser, isLoading } = this.props;
+        const { loggedUser, isLoading, classes  } = this.props;
         let progressDiv;
         if (isLoading) {
             progressDiv = (
-                <div className="fill-parent loading-bg vcenter" >
+                <div className="fill-parent loading-bg vcenter">
                     <div className="loadingDiv">
-                        <CircularProgress size={100} thickness={7} color={'White'} style={loadingDivStyle} />
+                        <CircularProgress size={100} thickness={7} color="White" style={loadingDivStyle} />
                     </div>
                 </div>
             );
@@ -102,7 +124,8 @@ class Template extends React.Component {
 
         return (
 
-            <MuiThemeProvider muiTheme={theme}>
+            <MuiThemeProvider theme={theme}>
+                <CssBaseline />
                 <div>
                     <Drawer
                         open={this.state.drawerOpen}
@@ -110,10 +133,20 @@ class Template extends React.Component {
                         onRequestChange={drawerOpen => this.setState({ drawerOpen })}
                     >
 
-                        <AppBar
-                            title={`Usuário: ${loggedUser}`}
-                            showMenuIconButton={false}
-                        />
+                        <AppBar>
+                            <Toolbar>
+                                <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+                                    <MenuIcon />
+                                </IconButton>
+                                <Typography variant="title" color="inherit" className={classes.flex}>
+                                    {`Usuário: ${loggedUser}`}
+                                </Typography>
+                            </Toolbar>
+                        </AppBar>
+
+                   
+
+
                         <div className="templateLogobar" />
                         <Divider />
                         <MenuItem
@@ -126,11 +159,9 @@ class Template extends React.Component {
                         <MenuItem
                             onClick={this.handleArea2Click}
                             rightIcon={<ChevronRight />}
-                        >
-                            Area 2
-                        </MenuItem>
+                        >Area 2</MenuItem>
                         <Divider />
-                        <FlatButton
+                        <Button
                             onClick={this.handleExitClick}
                             backgroundColor={appSecondaryColor}
                             fullWidth
@@ -144,13 +175,13 @@ class Template extends React.Component {
                             title={`Usuário: ${loggedUser}`}
                             showMenuIconButton
                             onLeftIconButtonClick={this.showDrawer}
-                            iconElementRight={
+                            iconElementRight={(
                                 <div>
-                                    <div className="versionFont">
-                                        V{version}
+                                    <div className="versionFont">V 
+                                        {version}
                                     </div>
                                 </div>
-                            }
+                            )}
                         />
                         <div style={appNameStyle}>
 
@@ -177,4 +208,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default withRouter(connect(mapStateToProps)(Template));
+export default withStyles(styles)(withRouter(connect(mapStateToProps)(Template)));

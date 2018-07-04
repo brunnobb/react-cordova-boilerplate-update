@@ -1,25 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="100000" id="br.com.biolerplate" version="1.0.0" 
-    xmlns="http://www.w3.org/ns/widgets" 
-    xmlns:gap="http://phonegap.com/ns/1.0">
-
+<widget android-versionCode="100000" id="br.com.biolerplate" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>
         CORDOVA-BOILERPLATE
     </name>
-
     <description>
         BOILERPLATE CORDOVA - ANDROID
     </description>
-
     <author email="brunnobb@gmail.com" href="">
         Brunno Bettini
     </author>
-
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
     <icon src="img/icon.png" />
-    
     <preference name="android-windowSoftInputMode" value="adjustPan" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
@@ -38,10 +31,6 @@
     <preference name="android-build-tool" value="gradle" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <engine name="android" spec="^7.1.0" />
-    <engine name="windows" spec="^6.0.0" />
-    <engine name="browser" spec="^5.0.3" />
-
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="org.apache.cordova.contacts" />
     <gap:plugin name="org.apache.cordova.device" />
@@ -107,5 +96,7 @@
         <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
         <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
     </platform>
-
+    <engine name="android" spec="^7.1.0" />
+    <engine name="windows" spec="^6.0.0" />
+    <engine name="browser" spec="^5.0.3" />
 </widget>

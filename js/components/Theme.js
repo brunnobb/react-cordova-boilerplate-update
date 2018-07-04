@@ -3,14 +3,10 @@
 Default theme form material ui
 
 */
-import * as _colors from '@material-ui/core/colors';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import {
-    createMuiTheme
-} from '@material-ui/core/styles';
-
-
+import * as _colors from 'material-ui/styles/colors';
+import { fade } from 'material-ui/utils/colorManipulator';
 // tabela de cores em http://www.material-ui.com/#/customization/colors
 
 /*
@@ -31,7 +27,7 @@ const appWarmDarkGray = '#AEA79F';
 const appWarmLightGray = '#DEDBD8';
 const grayDisabledColor = 'rgb(174, 167, 159)';
 
-const theme = createMuiTheme({
+const theme = getMuiTheme({
     palette: {
         primary1Color: appPrimaryColor,
         primary2Color: fade(appSecondaryColor, 0.07),

@@ -102,3 +102,14 @@ typings/
 
 #.idea folder
 .idea
+
+.gradle
+.vs
+.vscode
+
+
+.gradle/
+.vs/
+.vscode/
+
+package-lock\.json

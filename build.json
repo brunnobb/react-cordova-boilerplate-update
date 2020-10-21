@@ -1,0 +1,23 @@
+{
+  "android": {
+    "debug": {},
+    "release": {
+      "keystore": "./security/android/AppKeyStore",
+      "storePassword": "yyyy",
+      "alias": "xxxx",
+      "password": "yyyy",
+      "keystoreType": ""
+    }
+  },
+  "ios": {
+    "debug": {
+      "developmentTeam": "wwwww"
+    },
+    "release": {
+      "developmentTeam": "wwwww",
+      "codeSignIdentity": "iPhone Developer",
+      "packageType": "ad-hoc",
+      "automaticProvisioning": "true"
+    }
+  }
+}

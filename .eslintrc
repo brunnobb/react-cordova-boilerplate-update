@@ -1,48 +1,67 @@
 {
-    "extends": ["airbnb","plugin:css-modules/recommended"],
-    "parser": "babel-eslint",
-    "plugins": ["eslint-plugin-html", "css-modules"],
+  "extends": [
+    "airbnb",
+    "plugin:css-modules/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "parser": "babel-eslint",
+  "plugins": ["eslint-plugin-html", "css-modules", "prettier"],
 
-    "parserOptions": {
-
-        "ecmaVersion": 7,
-        "ecmaFeatures": {
-            "jsx": true,
-            "modules": true,
-            "arrowFunctions": true,
-            "classes": true,
-            "spread": true
-        }
-    },
-    "env": {
-        "es6": true,
-        "browser": true
-
-    },
-    "rules": {
-       "linebreak-style": [0],
-        "import/extensions": [2, {
-            "js": "never",
-            "json": "always",
-            "jsx": "always"
-        }],
-
-        "react/prefer-stateless-function": [1, {
-            "ignorePureComponents": true
-        }],
-        "indent": ["error", 4],
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
-        "comma-dangle": ["error", "never"],
-        "max-len": ["error", 120],
-
-        "no-alert": [0],
-        "no-console": [0],
-        "no-param-reassign": ["error", { "props": false }],
-        "jsx-a11y/anchor-has-content": "error",
-        "jsx-a11y/href-no-hash": "off",
-        "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }]
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "arrowFunctions": true,
+      "classes": true,
+      "spread": true
     }
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "linebreak-style": [0],
+    "import/extensions": [
+      2,
+      {
+        "js": "never",
+        "json": "always",
+        "jsx": "always"
+      }
+    ],
 
+    "react/prefer-stateless-function": [
+      1,
+      {
+        "ignorePureComponents": true
+      }
+    ],
+    "react/static-property-placement": [2, "static public field"],
 
+    "no-alert": [0],
+    "no-plusplus": [0],
+    "no-console": [0],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "jsx-a11y/anchor-has-content": "error",
+    "jsx-a11y/href-no-hash": "off",
+    "react/forbid-prop-types": "off",
+    "no-underscore-dangle": [0],
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        "aspects": ["invalidHref"]
+      }
+    ],
+    "react/no-did-update-set-state": "off",
+    "react/jsx-props-no-spreading": [0]
+  }
 }

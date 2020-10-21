@@ -1,0 +1,7 @@
+{
+  "name": "CORDOVA-BOILERPLATE",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

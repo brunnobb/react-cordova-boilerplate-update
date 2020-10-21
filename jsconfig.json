@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6"
+  },
+  "exclude": [
+    ".git",
+    ".graddle",
+    ".vs",
+    ".vscode",
+    "node_modules",
+    "www",
+    "plugins",
+    "platforms"
+  ]
+}

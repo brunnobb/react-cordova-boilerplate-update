@@ -1,69 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { withRouter } from 'react-router';
-import { Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import store from 'store2';
-import createHistory from 'history/createHashHistory';
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
-import SolicitacaoList from './components/SolicitacaoList.jsx';
-import Aprovar from './components/Aprovar.jsx';
-import Template from './components/MainTemplateComponent.jsx';
-import Login from './components/Login.jsx';
-import Home from './components/Home.jsx';
-import Contato from './components/Contato.jsx';
-import Teste from './components/Teste.jsx';
-import configureStore from './store/configureStore';
+import 'typeface-roboto-material'
 
-injectTapEventPlugin();
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-let preloadedState = {};
-let loggedUser;
-let loggedUserPass;
+import { Switch, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { createHashHistory } from 'history'
 
-if (typeof (Storage) !== 'undefined') {
-    // Code for localStorage/sessionStorage.
-    loggedUser = store('loggedUser') || '';
-    loggedUserPass = store('loggedUserPass') || '';
+import { ConnectedRouter } from 'connected-react-router'
+import { MuiThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
-    preloadedState = {
-        loggedUser,
-        loggedUserPass
-    };
-}
+import theme from './components/Theme.js'
+import { createStoreInstance } from './store/store.js'
 
+import Template from './components/MainTemplateComponent.jsx'
+import EmptyLoading from './components/startup/EmptyLoading.jsx'
 
-// Create a history of your choosing (we're using a browser history in this case)
-const history = createHistory();
-// Build the middleware for intercepting and dispatching navigation actions
-const rMiddleware = routerMiddleware(history);
+// import LoggedTemplate from './components/LoggedTemplate.jsx'
 
-const storeInstance = configureStore(preloadedState, rMiddleware);
+import Login from './components/startup/Login.jsx'
+import Home from './components/main/Home.jsx'
+
+const history = createHashHistory()
+
+const storeInstance = createStoreInstance(history)
 
 ReactDOM.render(
-    (
-        <Provider store={storeInstance}>
-            <ConnectedRouter history={history}>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/contato" component={Contato} />
-                    <Route
-                        path="/sc"
-                        render={() => (
-                            <Template>
-                                <Switch>
-                                    <Route exact path="/sc/consulta" component={SolicitacaoList} />
-                                    <Route path="/sc/consulta/:filter" component={SolicitacaoList} />
-                                    <Route path="/sc/aprovar/:filter" component={Aprovar} />
-                                    <Route path="/sc/teste/" component={Teste} />
-                                </Switch>
-                            </Template>)}
-                    />
-                </Switch>
-            </ConnectedRouter>
-        </Provider>
-    ),
-    document.getElementById('app')
-);
+	<Provider store={storeInstance}>
+		<ConnectedRouter history={history}>
+			<MuiThemeProvider theme={theme}>
+				<CssBaseline />
+				<Template>
+					<Switch>
+						<Route exact path='/' component={EmptyLoading} />
+						<Route exact path='/user/home' component={Home} />
+						<Route exact path='/login' component={Login} />
+						{/* <Route path='/screen1' component={Screen1} />
+						<Route path='/screen2' component={Screen2} />
+						<Route path='/login' component={Login} />
+						<Route
+							path='/user'
+							render={() => (
+								<LoggedTemplate>
+									<Switch>
+										<Route path='/user/screen3' component={Screen3} />
+										<Route path='/user/screen4/:id' component={Screen4} />
+									</Switch>
+								</LoggedTemplate>
+							)}
+						/> */}
+					</Switch>
+				</Template>
+			</MuiThemeProvider>
+		</ConnectedRouter>
+	</Provider>,
+	document.getElementById('app')
+)

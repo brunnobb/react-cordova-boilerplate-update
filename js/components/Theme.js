@@ -1,63 +1,40 @@
+import { createMuiTheme } from '@material-ui/core/styles'
 
-/*
-Default theme form material ui
+import { readTheme } from '../db/DbLocalStorage.js'
 
-*/
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-import * as _colors from 'material-ui/styles/colors';
-import { fade } from 'material-ui/utils/colorManipulator';
-// tabela de cores em http://www.material-ui.com/#/customization/colors
-
-/*
-datePicker: {
-color: palette.primary1Color,
-textColor: palette.alternateTextColor,
-calendarTextColor: palette.textColor,
-selectColor: palette.primary2Color,
-selectTextColor: palette.alternateTextColor,
-calendarYearBackgroundColor: _colors.white
+const customTheme = {
+	// will set dark mode for all the app
+	type: 'light',
+	// type: 'dark',
+	primary: {
+		// light: will be calculated from palette.primary.main,
+		main: '#ff4400'
+		// dark: will be calculated from palette.primary.main,
+		// contrastText: will be calculated to contrast with palette.primary.main
+	},
+	secondary: {
+		light: '#0066ff',
+		main: '#0044ff',
+		// dark: will be calculated from palette.secondary.main,
+		contrastText: '#ffcc00'
+	},
+	// Used by `getContrastText()` to maximize the contrast between
+	// the background and the text.
+	contrastThreshold: 3,
+	// Used by the functions below to shift a color's luminance by approximately
+	// two indexes within its tonal palette.
+	// E.g., shift from Red 500 to Red 300 or Red 700.
+	tonalOffset: 0.2
 }
-*/
 
-const appPrimaryColor = '#3a6f65';
-const appSecondaryColor = '#b7be00';
-const appWarmGray = '#BEB8B2';
-const appWarmDarkGray = '#AEA79F';
-const appWarmLightGray = '#DEDBD8';
-const grayDisabledColor = 'rgb(174, 167, 159)';
+let defaultPalette = null
+defaultPalette = readTheme()
 
-const theme = getMuiTheme({
-    palette: {
-        primary1Color: appPrimaryColor,
-        primary2Color: fade(appSecondaryColor, 0.07),
-        primary3Color: appWarmGray,
-        accent1Color: appSecondaryColor,
-        accent2Color: appWarmLightGray,
-        accent3Color: appWarmDarkGray,
-        textColor: _colors.darkBlack,
-        alternateTextColor: _colors.white,
-        canvasColor: _colors.white,
-        borderColor: appWarmLightGray,
-        disabledColor: fade(_colors.darkBlack, 0.3),
-        pickerHeaderColor: appSecondaryColor,
-        clockCircleColor: fade(_colors.darkBlack, 0.07),
-        shadowColor: _colors.fullBlack
-    },
-    dialog: {
-        // className: 'teste'
-    },
-    textField: {
-        disabledTextColor: _colors.fullBlack
-    }
-});
+const theme = createMuiTheme({
+	typography: {
+		useNextVariants: true
+	},
+	palette: defaultPalette?.palette || customTheme
+})
 
-export {
-    theme,
-    appPrimaryColor,
-    appSecondaryColor,
-    appWarmGray,
-    appWarmDarkGray,
-    appWarmLightGray,
-    grayDisabledColor
-};
+export default theme

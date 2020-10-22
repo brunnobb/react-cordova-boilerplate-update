@@ -1,3 +1,3 @@
 {
-  "reject": ["@date-io/moment"]
+	"reject": ["@date-io/moment", "webpack", "webpack-cli", "history"]
 }

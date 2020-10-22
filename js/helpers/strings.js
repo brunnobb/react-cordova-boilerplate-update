@@ -9,7 +9,9 @@ const Strings = new LocalizedStrings({
 		Cancel: 'Cancelar',
 		Yes: 'Sim',
 		No: 'Nao',
-		Settings: 'Configuracoes'
+		Settings: 'Configuracoes',
+		Image: 'Imagem',
+		Close: 'Fechar'
 	},
 	en: {
 		Home: 'Home',
@@ -19,7 +21,9 @@ const Strings = new LocalizedStrings({
 		Cancel: 'Cancel',
 		Yes: 'Yes',
 		No: 'No',
-		Settings: 'Settings'
+		Settings: 'Settings',
+		Image: 'Image',
+		Close: 'Close'
 	},
 	de: {
 		Home: 'Starten',
@@ -29,7 +33,9 @@ const Strings = new LocalizedStrings({
 		Cancel: 'Abbrechen',
 		Yes: 'Ja',
 		No: 'Nein',
-		Settings: 'Einstellungen'
+		Settings: 'Einstellungen',
+		Image: 'Bild',
+		Close: 'Schließen'
 	}
 })
 

@@ -1,0 +1,19 @@
+{
+	"users": [
+		{ "id": 1, "name": "brunno", "email": "brunnobb@gmail.com" },
+		{ "id": 2, "name": "other", "email": "other@provider.com" }
+	],
+	"posts": [
+		{ "id": 1, "text": "post1" },
+		{ "id": 2, "text": "post2" },
+		{ "id": 3, "text": "post3" }
+	],
+	"comments": [
+		{ "id": 1, "postId": 1, "text": "comment1" },
+		{ "id": 2, "postId": 1, "text": "comment2" },
+		{ "id": 3, "postId": 2, "text": "comment3" },
+		{ "id": 4, "postId": 2, "text": "comment4" },
+		{ "id": 5, "postId": 3, "text": "comment5" },
+		{ "id": 6, "postId": 4, "text": "comment6" }
+	]
+}

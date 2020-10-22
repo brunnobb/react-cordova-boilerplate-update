@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-packageName="com.package.boilerplate" android-versionCode="010000" id="com.package.boilerplate" ios-CFBundleIdentifier="com.package.boilerplate" version="1.0.00" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-packageName="com.company.boilerplate" android-versionCode="010000" id="com.company.boilerplate" ios-CFBundleIdentifier="com.company.boilerplate" version="1.0.00" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Cordova Boilerplate</name>
     <description>
             Cordova Boilerplate

@@ -15,6 +15,7 @@
 		"hmr": "cross-env PORT=8085 HOST=0.0.0.0 NODE_ENV=development webpack-dev-server",
 		"cordova-browser": "cross-env NODE_ENV=development npm run webpack&&cordova run browser",
 		"android": "cross-env NODE_ENV=development npm run webpack&&cordova run android --device",
+		"android:emulator": "cross-env NODE_ENV=development npm run webpack&&cordova run android",
 		"ios": "cross-env NODE_ENV=development npm run webpack&&cordova run ios --device",
 		"build:android": "cross-env NODE_ENV=production npm run webpack&&cordova build android --release",
 		"build:ios": "cross-env NODE_ENV=production npm run webpack&&cordova build ios --release",
@@ -26,7 +27,9 @@
 		"watchbuild": "watchbuild -a com.package.boilerplate -u brunnobb@gmail.com",
 		"resources:android": "ionic cordova resources android -f",
 		"resources:ios": "ionic cordova resources ios -f",
+		"add:android": "cordova platform add android",
 		"add:ios": "cordova platform add ios",
+		"remove:android": "cordova platform remove android",
 		"remove:ios": "cordova platform remove ios",
 		"remove:windows": "cordova platform remove windows",
 		"prettier": "npm run prettier:js&&npm run prettier:jsx",
@@ -45,13 +48,14 @@
 		"@material-ui/styles": "^4.10.0",
 		"@types/react": "^16.9.53",
 		"@types/react-dom": "^16.9.8",
+		"N": "0.1.0",
 		"axios": "^0.20.0",
 		"classnames": "^2.2.6",
 		"connected-react-router": "^6.8.0",
-		"cordova": "^10.0.0",
-		"cordova-android": "^9.0.0",
+		"cordova": "^9.0.0",
+		"cordova-android": "^8.1.0",
 		"cordova-custom-config": "^5.1.0",
-		"cordova-ios": "^6.1.1",
+		"cordova-ios": "^5.1.1",
 		"cordova-plugin-camera": "^5.0.0",
 		"cordova-plugin-compat": "^1.2.0",
 		"cordova-plugin-device": "^2.0.3",
@@ -151,8 +155,7 @@
 	},
 	"cordova": {
 		"platforms": [
-			"android",
-			"ios"
+			"android"
 		],
 		"plugins": {
 			"cordova-plugin-whitelist": {},

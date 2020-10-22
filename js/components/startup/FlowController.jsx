@@ -78,7 +78,7 @@ class FlowController extends React.Component {
 
 	render() {
 		const { children } = this.props
-		const { currentStep, currentMax, isLoaded, finished } = this.state
+		const { currentStep, currentMax, isLoaded } = this.state
 
 		if (!isLoaded) {
 			return (

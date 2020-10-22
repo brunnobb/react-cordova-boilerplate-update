@@ -1,3 +1,11 @@
 {
-	"reject": ["@date-io/moment", "webpack", "webpack-cli", "history"]
+	"reject": [
+		"@date-io/moment",
+		"webpack",
+		"webpack-cli",
+		"history",
+		"cordova",
+		"cordova-android",
+		"cordova-ios"
+	]
 }

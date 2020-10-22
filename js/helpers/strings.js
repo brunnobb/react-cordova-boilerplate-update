@@ -11,7 +11,8 @@ const Strings = new LocalizedStrings({
 		No: 'Nao',
 		Settings: 'Configuracoes',
 		Image: 'Imagem',
-		Close: 'Fechar'
+		Close: 'Fechar',
+		loginFailed: 'Falha ao entrar'
 	},
 	en: {
 		Home: 'Home',
@@ -23,7 +24,8 @@ const Strings = new LocalizedStrings({
 		No: 'No',
 		Settings: 'Settings',
 		Image: 'Image',
-		Close: 'Close'
+		Close: 'Close',
+		loginFailed: 'Fail to log in+'
 	},
 	de: {
 		Home: 'Starten',
@@ -35,7 +37,8 @@ const Strings = new LocalizedStrings({
 		No: 'Nein',
 		Settings: 'Einstellungen',
 		Image: 'Bild',
-		Close: 'Schließen'
+		Close: 'Schließen',
+		loginFailed: 'Anmeldung fehlgeschlagen'
 	}
 })
 

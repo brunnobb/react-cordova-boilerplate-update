@@ -1,4 +1,4 @@
-import { push } from 'connected-react-router'
+import { push, goBack } from 'connected-react-router'
 import { getStore } from '../store/store.js'
 
 export const redirectTarget = (path) => {
@@ -22,4 +22,10 @@ export const redirectHome = () => {
 	const { dispatch } = getStore()
 	const path = '/user/home'
 	dispatch(push(path))
+}
+
+export const redirectBack = () => {
+	const { dispatch } = getStore()
+
+	dispatch(goBack())
 }

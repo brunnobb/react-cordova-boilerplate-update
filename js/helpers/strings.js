@@ -12,7 +12,8 @@ const Strings = new LocalizedStrings({
 		Settings: 'Configuracoes',
 		Image: 'Imagem',
 		Close: 'Fechar',
-		loginFailed: 'Falha ao entrar'
+		loginFailed: 'Falha ao entrar',
+		CurrentUser: 'Usuario: {0}'
 	},
 	en: {
 		Home: 'Home',
@@ -25,7 +26,8 @@ const Strings = new LocalizedStrings({
 		Settings: 'Settings',
 		Image: 'Image',
 		Close: 'Close',
-		loginFailed: 'Fail to log in+'
+		loginFailed: 'Fail to log in',
+		CurrentUser: 'User: {0}'
 	},
 	de: {
 		Home: 'Starten',
@@ -38,7 +40,8 @@ const Strings = new LocalizedStrings({
 		Settings: 'Einstellungen',
 		Image: 'Bild',
 		Close: 'Schließen',
-		loginFailed: 'Anmeldung fehlgeschlagen'
+		loginFailed: 'Anmeldung fehlgeschlagen',
+		CurrentUser: 'Benutzer {0}'
 	}
 })
 

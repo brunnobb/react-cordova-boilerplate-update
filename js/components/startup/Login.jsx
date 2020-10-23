@@ -18,9 +18,9 @@ import Button from '@material-ui/core/Button'
 
 import { fetchExecuteLogin } from '../../actions/fetchActions.js'
 
-import { LOGO_BIG_KEY } from '../../helpers/constantKeys.js'
-
 import ImageFile from '../shared/ImageFile.jsx'
+
+import ImgLogo from '../../../resources/static/logo-bar.png'
 
 const styles = (theme) => ({
 	root: {
@@ -127,75 +127,77 @@ class Login extends React.Component {
 								<Grid item xs={12}>
 									<div className={classes.imageDiv}>
 										<ImageFile
-											imageKey={LOGO_BIG_KEY}
+											src={ImgLogo}
 											alt='LogoIcon'
 											className={classes.logoImage}
+											enableFullScreen={false}
 										/>
 									</div>
-								</Grid>
-
-								<form className={classNames(classes.fullWidth)}>
 									<Grid
 										item
 										xs={12}
 										className={classNames(classes.margin, classes.topMargin)}
 									>
 										<Paper className={classes.root} elevation={1}>
-											<Grid container item xs={12} className={classes.margin}>
-												<Grid item xs={12}>
-													<TextField
-														inputProps={{
-															autoComplete: 'username'
-														}}
-														label='Username'
-														placeholder='Type your username'
-														className={classes.textField}
-														margin='normal'
-														autoFocus
-														value={txtname}
-														onChange={this.handleChangeText('txtname')}
-													/>
-												</Grid>
-												<Grid item xs={12}>
-													<TextField
-														inputProps={{
-															autoComplete: 'current-password'
-														}}
-														label='Password'
-														placeholder='Type your password'
-														className={classes.textField}
-														margin='normal'
-														type='password'
-														value={txtpass}
-														onChange={this.handleChangeText('txtpass')}
-													/>
-												</Grid>
+											<Grid
+												container
+												item
+												xs={12}
+												className={classes.margin}
+											/>
 
-												<Grid item xs={12} className={classes.bigMargin}>
-													<Button
-														color='primary'
-														variant='contained'
-														onClick={this.handleConfirm}
-														className={classes.submitBtn}
-													>
-														Login
-													</Button>
-												</Grid>
+											<Grid item xs={12}>
+												<TextField
+													inputProps={{
+														autoComplete: 'username'
+													}}
+													label='Username'
+													placeholder='Type your username'
+													className={classes.textField}
+													margin='normal'
+													autoFocus
+													value={txtname}
+													onChange={this.handleChangeText('txtname')}
+												/>
+											</Grid>
+											<Grid item xs={12}>
+												<TextField
+													inputProps={{
+														autoComplete: 'current-password'
+													}}
+													label='Password'
+													placeholder='Type your password'
+													className={classes.textField}
+													margin='normal'
+													type='password'
+													value={txtpass}
+													onChange={this.handleChangeText('txtpass')}
+												/>
+											</Grid>
+
+											<Grid item xs={12} className={classes.bigMargin}>
+												<Button
+													color='primary'
+													variant='contained'
+													onClick={this.handleConfirm}
+													className={classes.submitBtn}
+												>
+													Login
+												</Button>
 											</Grid>
 										</Paper>
 									</Grid>
-								</form>
+								</Grid>
 							</Grid>
 						</Paper>
-
-						<BottomNavigation value={1} showLabels className={classes.bottomNav}>
-							<BottomNavigationAction
-								label='Back'
-								icon={<ChevronLeftIcon />}
-								onClick={this.goBack}
-							/>
-						</BottomNavigation>
 					</Grid>
+					<BottomNavigation value={1} showLabels className={classes.bottomNav}>
+						<BottomNavigationAction
+							label='Back'
+							icon={<ChevronLeftIcon />}
+							onClick={this.goBack}
+						/>
+					</BottomNavigation>
 				</Grid>
 			</div>
 		)

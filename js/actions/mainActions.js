@@ -25,11 +25,35 @@ export const changeShowGeneralMessage = (visible) => ({
 	visible
 })
 
+export const CHANGE_SCREEN_NAME = 'CHANGE_SCREEN_NAME'
+export const changeScreenName = (text) => ({
+	type: CHANGE_SCREEN_NAME,
+	text
+})
+
 export const CHANGE_USER = 'CHANGE_USER'
 export const changeUser = (user) => {
 	saveUser(user)
 	return {
 		type: CHANGE_USER,
 		user
+	}
+}
+
+export const CHANGE_SHOW_BACK_BUTTON = 'CHANGE_SHOW_BACK_BUTTON'
+export const changeShowBackButton = (user) => {
+	saveUser(user)
+	return {
+		type: CHANGE_SHOW_BACK_BUTTON,
+		user
+	}
+}
+
+export const CHANGE_PAGE_DATA = 'CHANGE_PAGE_DATA'
+export const changePageData = (screenName, showBackButton) => {
+	return {
+		type: CHANGE_PAGE_DATA,
+		screenName,
+		showBackButton
 	}
 }

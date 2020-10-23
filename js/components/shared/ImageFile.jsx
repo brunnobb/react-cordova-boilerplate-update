@@ -14,15 +14,20 @@ class ImageFile extends React.Component {
 	static propTypes = {
 		dispatch: PropTypes.func.isRequired,
 		deviceIsReady: PropTypes.bool.isRequired,
-		imageKey: PropTypes.string.isRequired,
+		enableFullScreen: PropTypes.bool,
+		imageKey: PropTypes.string,
 		imageKeyTemp: PropTypes.string,
+		src: PropTypes.string,
 		reprint: PropTypes.number,
 		onClick: PropTypes.func
 	}
 
 	static defaultProps = {
+		imageKey: '',
 		imageKeyTemp: '',
 		reprint: 1,
+		src: '',
+		enableFullScreen: true,
 		onClick: null
 	}
 
@@ -92,13 +97,15 @@ class ImageFile extends React.Component {
 	}
 
 	updateImage = (forceUpdate) => {
-		const { imageKey, imageKeyTemp, deviceIsReady } = this.props
+		const { imageKey, imageKeyTemp, deviceIsReady, src } = this.props
 
 		const { picValue } = this.state
 
 		if (!deviceIsReady) {
 			return
 		}
+
+		if (src) return
 
 		if (picValue && !forceUpdate) {
 			return
@@ -151,6 +158,8 @@ class ImageFile extends React.Component {
 	}
 
 	openModal = () => {
+		const { enableFullScreen } = this.props
+		if (!enableFullScreen) return
 		this.setState({
 			fullScreenModalOpen: true
 		})
@@ -169,6 +178,8 @@ class ImageFile extends React.Component {
 			deviceIsReady,
 			imageKeyTemp,
 			onClick,
+			src,
+			enableFullScreen,
 			...otherProps
 		} = this.props
 
@@ -176,6 +187,9 @@ class ImageFile extends React.Component {
 		let imgValue = picValue
 		if (!picValue) {
 			imgValue = StripedImage
+		}
+		if (src) {
+			imgValue = src
 		}
 
 		return (

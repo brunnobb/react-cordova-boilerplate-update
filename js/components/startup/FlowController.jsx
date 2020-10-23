@@ -47,10 +47,10 @@ class FlowController extends React.Component {
 			// Cordova is not loaded, so, wait
 		} else if (!isLoaded) {
 			this.loadSomething()
-		} else if (!loggedUser || !loggedUser.email || !loggedUser.token) {
+		} else if (!loggedUser || !loggedUser.email) {
 			const user = readUser()
 
-			if (!user || !user.email || !user.token) {
+			if (!user || !user.email) {
 				redirectLogin()
 				return
 			}

@@ -15,12 +15,12 @@ import theme from './components/Theme.js'
 import { createStoreInstance } from './store/store.js'
 
 import Template from './components/MainTemplateComponent.jsx'
+import LoggedTemplate from './components/LoggedTemplate.jsx'
 import EmptyLoading from './components/startup/EmptyLoading.jsx'
-
-// import LoggedTemplate from './components/LoggedTemplate.jsx'
-
 import Login from './components/startup/Login.jsx'
 import Home from './components/main/Home.jsx'
+import Components from './components/main/Components.jsx'
+import Database from './components/main/Database.jsx'
 
 const history = createHashHistory()
 
@@ -34,22 +34,19 @@ ReactDOM.render(
 				<Template>
 					<Switch>
 						<Route exact path='/' component={EmptyLoading} />
-						<Route exact path='/user/home' component={Home} />
 						<Route exact path='/login' component={Login} />
-						{/* <Route path='/screen1' component={Screen1} />
-						<Route path='/screen2' component={Screen2} />
-						<Route path='/login' component={Login} />
 						<Route
 							path='/user'
 							render={() => (
 								<LoggedTemplate>
 									<Switch>
-										<Route path='/user/screen3' component={Screen3} />
-										<Route path='/user/screen4/:id' component={Screen4} />
+										<Route path='/user/home' component={Home} />
+										<Route path='/user/components' component={Components} />
+										<Route path='/user/database' component={Database} />
 									</Switch>
 								</LoggedTemplate>
 							)}
-						/> */}
+						/>
 					</Switch>
 				</Template>
 			</MuiThemeProvider>

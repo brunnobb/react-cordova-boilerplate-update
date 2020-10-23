@@ -5,7 +5,10 @@ import {
 	CHANGE_LOADING,
 	CHANGE_GENERAL_MESSAGE_TEXT,
 	CHANGE_SHOW_GENERAL_MESSAGE,
-	CHANGE_USER
+	CHANGE_USER,
+	CHANGE_SCREEN_NAME,
+	CHANGE_SHOW_BACK_BUTTON,
+	CHANGE_PAGE_DATA
 } from '../actions/mainActions.js'
 
 const isLoading = (state = false, action) => {
@@ -48,6 +51,28 @@ const generalMessageText = (state = '', action) => {
 	}
 }
 
+const screenName = (state = 'Home', action) => {
+	switch (action.type) {
+		case CHANGE_SCREEN_NAME:
+			return action.text
+		case CHANGE_PAGE_DATA:
+			return action.screenName
+		default:
+			return state
+	}
+}
+
+const showBackButton = (state = false, action) => {
+	switch (action.type) {
+		case CHANGE_SHOW_BACK_BUTTON:
+			return action.show
+		case CHANGE_PAGE_DATA:
+			return action.showBackButton
+		default:
+			return state
+	}
+}
+
 // Login
 const loggedUser = (state = null, action) => {
 	switch (action.type) {
@@ -65,6 +90,8 @@ const getRootReducer = (history) =>
 		showGeneralMessage,
 		generalMessageText,
 		loggedUser,
+		screenName,
+		showBackButton,
 		router: connectRouter(history)
 	})
 

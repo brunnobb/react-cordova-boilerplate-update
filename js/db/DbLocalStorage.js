@@ -20,6 +20,15 @@ function readFromString(key) {
 	return retText
 }
 
+function saveString(key, text) {
+	if (!text) {
+		store.remove(key)
+		return
+	}
+
+	store.set(key, text)
+}
+
 function saveJson(key, obj) {
 	if (!obj || obj === 'null') {
 		store.remove(key)
@@ -28,15 +37,6 @@ function saveJson(key, obj) {
 
 	const retText = JSON.stringify(obj)
 	store.set(key, retText)
-}
-
-function saveString(key, text) {
-	if (!text) {
-		store.remove(key)
-		return
-	}
-
-	store.set(key, text)
 }
 
 export function readTheme() {

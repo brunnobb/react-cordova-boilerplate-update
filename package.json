@@ -73,7 +73,7 @@
 		"immutability-helper": "^3.1.1",
 		"lodash": "^4.17.20",
 		"makecancelable": "^1.1.1",
-		"moment": "^2.29.1",
+		"moment": "^2.29.2",
 		"phonegap-plugin-barcodescanner": "8.1.0",
 		"pouchdb": "^7.2.2",
 		"pouchdb-adapter-cordova-sqlite": "^2.0.7",
